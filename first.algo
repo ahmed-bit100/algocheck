@@ -1,0 +1,20 @@
+ALGORITHM algo_check
+VAR
+    CharCount: INTEGER := 0;
+    SpaceCount: INTEGER := 0;
+    WordCount: INTEGER := 0;
+    VowelCount:INTEGER := 0;
+    i : INTEGER ;
+    Sentence : STRING;
+BEGIN
+    FOR i FROM 0 TO Sentence.length-1 STEP 1  DO
+         CharCount = CharCount + 1;
+         IF ( Sentence[i]=' ',",",".","?","!","""") THEN
+         SpaceCount := SpaceCount+1;
+         //count every space and punctuation so they're not added in the word count//
+         WordCount := CharCount-SpaceCount;
+         END_IF
+         IF (Sentence[i]=["A","a","E","e","I","i","O","o","U","u","Y","y"]) THEN
+             VowelCount := VowelCount+1;
+         END_IF
+    END_FOR
